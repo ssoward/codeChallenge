@@ -29,17 +29,17 @@
 
  */
 
-public class Template implements CodeChallenge {
+public class ChallengeOne implements CodeChallenge {
 
+    // @TODO Implement this method
     @Override
     public Integer romanStringToInt(String romanString) {
-        // Implement this method
         return null;
     }
 
 
     public static void main (String args[]){
-        Template t = new Template();
+        ChallengeOne t = new ChallengeOne();
         Utils.runTest(t);
     }
 }
