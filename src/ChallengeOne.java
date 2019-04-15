@@ -40,6 +40,6 @@ public class ChallengeOne implements CodeChallenge {
 
     public static void main (String args[]){
         ChallengeOne t = new ChallengeOne();
-        Utils.runTest(t);
+        Utils.runTestOne(t);
     }
 }

@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Utils {
@@ -41,14 +42,29 @@ public class Utils {
         return tests;
     }
 
-    public static void runTest(CodeChallenge t) {
+    public static void runTestOne(CodeChallenge t) {
         Utils.createTest().forEach((key, value)-> {
             Integer x = t.romanStringToInt(key);
-            if(value == x) {
+            if(value.equals(x)) {
                 System.out.println("\u001B[30m" + key + ": " + value + " == " + x);
             }else{
                 System.out.println("\u001B[31m" + "ERROR: "+key + ": " + value + " != " + x);
             }
         });
+    }
+
+    public static void runTestTwo(List<Integer> list) {
+        if(null == list){ System.out.println("\u001B[31m" + "ERROR: list is null"); return;}
+        int prev = -1;
+        int curr = 1;
+        for(Integer i: list){
+            if(i.equals(prev + curr)){
+                System.out.println("\u001B[30m" + i);
+            }else{
+                System.out.println("\u001B[31m" + "ERROR: "+i);
+            }
+            prev = curr;
+            curr = i;
+        }
     }
 }
