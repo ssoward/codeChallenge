@@ -2,13 +2,13 @@
 /*
     Code challenge for generating the numeric value of Roman Numerals
     Examples:
-     CXI: 111 == 111
-     VII: 7 == 7
-     I: 1 == 1
+     CXI:    111 == 111
+     VII:    7 == 7
+     I:      1 == 1
      LXXXIX: 89 == 89
-     IV: 4 == 4
-     M: 1000 == 1000
-     XLVI: 46 == 46
+     IV:     4 == 4
+     M:      1000 == 1000
+     XLVI:   46 == 46
 
     Roman Numeral Rule:
       IV	4 = 5 - 1
