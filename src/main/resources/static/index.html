@@ -1,0 +1,104 @@
+<html>
+<head>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .header {
+            padding: 15px;
+        }
+
+        .menu {
+            width: 38%;
+            float: left;
+            padding: 15px;
+        }
+
+        .main {
+            width: 60%;
+            float: left;
+            padding: 15px;
+        }
+    </style>
+    <script>
+        var json;
+        function lookup(text) {
+            window.document.getElementById('found').innerHTML = '';
+            for (var i = 0; i < json.cards.length; i++) {
+                var card = json.cards[i]; var a = (card.name);
+                if(a.toLowerCase().indexOf(text.value.toLowerCase())>-1) {
+                    var node = document.createElement("li");
+                    var link = document.createElement("a");
+                    link.href = '#';
+                    // link.onclick = 'loadMember('+a+')';
+                    link.addEventListener("click", loadMember, this);
+                    var linkText = document.createTextNode(a);
+                    link.appendChild(linkText);
+                    node.appendChild(link);
+                    window.document.getElementById('found').appendChild(node);
+                }
+            }
+        }
+
+        function loadMember(peep) {
+            var text = peep.srcElement.innerHTML;
+            window.document.getElementById('employee').innerHTML = text;
+            window.document.getElementById('notes').innerHTML = '';
+            for (var i = 0; i < json.actions.length; i++) {
+                var action = json.actions[i];
+                var data = action.data;
+                if(data && data.card && data.card.name == text && data.text) {
+                    console.log(action);
+                    var note = document.createElement("li");
+                    var date = new Date(data.dateLastEdited || action.date);
+                    var d = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
+
+                    note.innerHTML = d +'<div> '+ data.text+'</div>';
+                    window.document.getElementById('notes').appendChild(note);
+                }
+            }
+        }
+
+        function httpGet(file) {
+            window.document.getElementById('found').innerHTML = '';
+            var rawFile = new XMLHttpRequest();
+            rawFile.open("GET", file, false);
+            rawFile.onreadystatechange = function () {
+                if(rawFile.readyState === 4){
+                    if(rawFile.status === 200 || rawFile.status == 0){
+                        var allText = rawFile.responseText;
+                        json = JSON.parse(allText);
+                    }
+                }
+            };
+            rawFile.send(null);
+        }
+    </script>
+</head>
+
+</head>
+<body>
+
+<div class="header">
+    <h1>One on One Conversations</h1>
+</div>
+
+
+<div class="menu" id="json">
+    <div>
+        <div> <a href="#" onclick="httpGet('./OneOnOne2019.json')">2019</a> </div>
+        <div> <a href="#" onclick="httpGet('./OneOnOne2018.json')">2018</a> </div>
+    </div>
+    <br/>
+    Search: <input type="text" onkeyup="lookup(this)">
+    <ul id="found"> </ul>
+</div>
+
+<div class="main">
+    <div id="employee"></div>
+    <ul id="notes"> </ul>
+</div>
+<script>
+</script>
+</html>
