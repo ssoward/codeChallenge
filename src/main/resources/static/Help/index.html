@@ -1,0 +1,187 @@
+<!--<html class="home-bg">-->
+<!--<head>-->
+<!--<script async src="./javascript/index.js"></script>-->
+<!--<link rel="stylesheet" href="styles/styles.css" />-->
+<!--<title>EPCIT Prototype</title>-->
+<!--</head>-->
+
+
+<!--<body>-->
+
+<!--<div class="grid-container">-->
+<!--<div class="item1">-->
+<!--<button style="width:33.3%; float: left" onclick="playVideo('train')">train</button>-->
+<!--<button style="width:33.3%; float: left" onclick="playVideo('score')">score</button>-->
+<!--<button style="width:33.3%; float: left" onclick="window.location.href = './media/video/paper.mp4';">paper</button>-->
+<!--</div>-->
+
+<!--<div class="item2">-->
+<!--<button id = "q" style="width:100%; margin-top: 15px">Question:&nbsp;&nbsp;0</button>-->
+<!--<button style="width:50%; float:left;" onclick = "addPoint('q')">+</button>-->
+<!--<button style="width:50%; float:left; margin-bottom:10px" onclick = "subPoint('q')">-</button>-->
+
+<!--<button id = "c" style="width:100%; margin-top: 15px">Command:&nbsp;&nbsp;0</button>-->
+<!--<button style="width:50%; float:left;" onclick = "addPoint('c')">+</button>-->
+<!--<button style="width:50%; float:left; margin-bottom:10px" onclick = "subPoint('c')">-</button>-->
+
+<!--<button id = "n" style="width:100%; margin-top: 15px">Neutral Talk:&nbsp;&nbsp;0</button>-->
+<!--<button style="width:50%; float:left;" onclick = "addPoint('n')">+</button>-->
+<!--<button style="width:50%; float:left; margin-bottom:10px" onclick = "subPoint('n')">-</button>-->
+<!--</div>-->
+
+<!--<div class="item3">-->
+<!---->
+<!--<div id="container">            -->
+<!--<video controls id="videoElement"></video>-->
+<!--</div>-->
+
+<!--</div>-->
+
+<!--<div class="item4">-->
+<!--<button id = "b" style="width:100%; margin-top: 15px">Behavior Description:&nbsp;&nbsp;0</button>-->
+<!--<button style="width:50%; float:left;" onclick = "addPoint('b')">+</button>-->
+<!--<button style="width:50%; float:left; margin-bottom:10px" onclick = "subPoint('b')">-</button>-->
+
+<!--<button id = "r" style="width:100%; margin-top: 15px">Reflection:&nbsp;&nbsp;0</button>-->
+<!--<button style="width:50%; float:left;" onclick = "addPoint('r')">+</button>-->
+<!--<button style="width:50%; float:left; margin-bottom:10px" onclick = "subPoint('r')">-</button>-->
+
+<!--<button id = "l" style="width:100%; margin-top: 15px">Labeled Praise:&nbsp;&nbsp;0</button>-->
+<!--<button style="width:50%; float:left;" onclick = "addPoint('l')">+</button>-->
+<!--<button style="width:50%; float:left; margin-bottom:10px" onclick = "subPoint('l')">-</button>-->
+
+<!--</div>-->
+<!---->
+<!--<div class="item5">-->
+
+<!--<button style="width:100%;" onclick="storeJSON();openReport();">Generate Report</button>                -->
+
+<!--</div>-->
+<!--</div>-->
+
+<!---->
+<!--</body>-->
+
+<!--</html>-->
+<html class="home-bg">
+<head>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <script async src="./javascript/index.js"></script>
+
+    <style>
+
+        .wrapper {
+            display: flex;
+            flex-flow: row wrap;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .wrapper > * {
+            padding: 10px;
+            flex: 1 100%;
+        }
+
+        .header {
+            background: tomato;
+        }
+
+        .footer {
+            background: lightgreen;
+        }
+
+        .main {
+            text-align: left;
+            background: deepskyblue;
+        }
+
+        .aside-1 {
+            background: gold;
+        }
+
+        .aside-2 {
+            background: hotpink;
+        }
+
+        @media all and (min-width: 600px) {
+            .aside { flex: 1 0 0; }
+        }
+
+        @media all and (min-width: 800px) {
+            .main    { flex: 3 0px; }
+            .aside-1 { order: 1; }
+            .main    { order: 2; }
+            .aside-2 { order: 3; }
+            .footer  { order: 4; }
+        }
+
+        body {
+            padding: 2em;
+        }
+
+        .home-bg {
+            background-color: black;
+        }
+
+    </style>
+    <link rel="stylesheet" href="styles/bootstrap.min.css" />
+    <!--<link rel="stylesheet" href="styles/styles.css" />-->
+</head>
+<body>
+
+<div class="wrapper">
+    <header class="header">
+        <div class="grid-container">
+            <div class="item1">
+                <button class="btn-default btn" onclick="playVideo('train')">train</button>
+                <button class="btn-default btn" onclick="playVideo('score')">score</button>
+                <button class="btn-default btn" onclick="window.location.href = './media/video/paper.mp4';">paper</button>
+            </div>
+        </div>
+    </header>
+    <article class="main" style="width: 100%;">
+        <div class="item3" style="width: 100%;">
+            <div id="container" style="width: 100%;">
+                <video controls="" id="videoElement" style="width: 100%;" webkit-playsinline playsinline></video>
+            </div>
+        </div>
+    </article>
+    <aside class="aside aside-1">
+        <div class="item2">
+            <button class="btn-default btn" id = "q" style="width:100%; margin-top: 15px">Question:&nbsp;&nbsp;0</button>
+            <button class="btn-default btn" style="width:50%; float:left;" onclick = "addPoint('q')">+</button>
+            <button class="btn-default btn" style="width:50%; float:left; margin-bottom:10px" onclick = "subPoint('q')">-</button>
+
+            <button class="btn-default btn" id = "c" style="width:100%; margin-top: 15px">Command:&nbsp;&nbsp;0</button>
+            <button class="btn-default btn" style="width:50%; float:left;" onclick = "addPoint('c')">+</button>
+            <button class="btn-default btn" style="width:50%; float:left; margin-bottom:10px" onclick = "subPoint('c')">-</button>
+
+            <button class="btn-default btn" id = "n" style="width:100%; margin-top: 15px">Neutral Talk:&nbsp;&nbsp;0</button>
+            <button class="btn-default btn" style="width:50%; float:left;" onclick = "addPoint('n')">+</button>
+            <button class="btn-default btn" style="width:50%; float:left; margin-bottom:10px" onclick = "subPoint('n')">-</button>
+        </div>
+    </aside>
+    <aside class="aside aside-2">
+        <div class="item4">
+            <button class="btn-default btn" id = "b" style="width:100%; margin-top: 15px">Behavior Description:&nbsp;&nbsp;0</button>
+            <button class="btn-default btn" style="width:50%; float:left;" onclick = "addPoint('b')">+</button>
+            <button class="btn-default btn" style="width:50%; float:left; margin-bottom:10px" onclick = "subPoint('b')">-</button>
+
+            <button class="btn-default btn" id = "r" style="width:100%; margin-top: 15px">Reflection:&nbsp;&nbsp;0</button>
+            <button class="btn-default btn" style="width:50%; float:left;" onclick = "addPoint('r')">+</button>
+            <button class="btn-default btn" style="width:50%; float:left; margin-bottom:10px" onclick = "subPoint('r')">-</button>
+
+            <button class="btn-default btn" id = "l" style="width:100%; margin-top: 15px">Labeled Praise:&nbsp;&nbsp;0</button>
+            <button class="btn-default btn" style="width:50%; float:left;" onclick = "addPoint('l')">+</button>
+            <button class="btn-default btn" style="width:50%; float:left; margin-bottom:10px" onclick = "subPoint('l')">-</button>
+
+        </div>
+    </aside>
+    <footer class="footer">
+        <div class="item5">
+            <button class="btn-default btn" style="width:100%;" onclick="storeJSON();openReport();">Generate Report</button>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
